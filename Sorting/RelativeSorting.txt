@@ -1,0 +1,52 @@
+
+
+Que: 
+
+Relative Sorting: We have given two arrays a1, a2 and we have to sort a1 acoording to the
+                  relative order of a2.
+
+                  Ex: a1 = 2,1,2,5,7,1,9,3,6,8,8
+                  	  a2 = 2,1,8,3
+                  	  out = 2,2,1,1,8,8,3,5,6,7,9
+-------------------------------------------------------------------------------------------
+
+Logic: 1. first sort the a1 according to a2
+	   2. then sort remaining part of a1.
+
+-------------------------------------------------------------------------------------------
+
+code:
+
+static void relativeSorting(int arr1[], int n, int arr2[], int m)
+	{
+       // Write your code here, print output
+		int idx = 0;
+
+		//sorting arr1 according to arr2
+		for(int i=0;i<m;i++){
+			for(int j=idx;j<n;j++){
+				if(arr2[i]==arr1[j]){
+					int t = arr1[idx];
+					arr1[idx]=arr1[j];
+					arr1[j]=t;
+					idx++;
+				}
+			}
+		}
+		// sorting rest of the arr1, for better time complexity use quick/merge sort for this
+		for(int i=idx;i<n-1;i++){
+			int min = i;
+			for(int j=i+1;j<n;j++){
+				if(arr1[j]<arr1[min]){
+					min=j;
+				}
+			}
+			int temp = arr1[i];
+			arr1[i]=arr1[min];
+			arr1[min]=temp;
+		}
+		
+		for(int i=0;i<n;i++){
+			System.out.print(arr1[i]+" ");
+		}
+	}
