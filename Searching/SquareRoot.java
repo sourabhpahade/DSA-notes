@@ -58,6 +58,6 @@ public class SquareRoot {
 
     public static void main(String[] args) {
 
-        System.out.println(sqRoot1(14));
+        System.out.println(sqRoot1(10000000));
     }
 }

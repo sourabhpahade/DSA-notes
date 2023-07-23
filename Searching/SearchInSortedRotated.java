@@ -21,7 +21,7 @@ public class SearchInSortedRotated {
             }
 
             // checking if array is sorted from low to mid or not
-            if ((a[low] < a[mid])) {
+            if ((a[low] <= a[mid])) {
 
                 // checking is x is present in [low,mid-1]
                 if (x >= a[low] && x < a[mid]) {
@@ -53,8 +53,8 @@ public class SearchInSortedRotated {
 
     public static void main(String[] args) {
 
-        int[] a = { 10, 20, 30, 40, 50, 8, 9 };
+        int[] a = { 3,1};
 
-        System.out.println(search(a, 40));
+        System.out.println(search(a, 1));
     }
 }
