@@ -1,20 +1,21 @@
 package Stacks;
 
+import java.util.*;
+
 /*
- * Implementing stack using array
+ * Implementing stack
  */
 public class MyStack {
 
-    // Creating fixed sized stack using fixed size array
-
-    static class Stack {
+    // fixed sized stack using fixed size array
+    static class FixedStack {
 
         int capacity; // gives the capacity of stack
         int size; // gives the current size of stack
 
         int[] container; // creating container used as stack to store int
 
-        public Stack(int capacity) {
+        public FixedStack(int capacity) {
 
             this.capacity = capacity;
             size = 0;
@@ -67,40 +68,114 @@ public class MyStack {
         }
     }
 
+    // dynamic sized stack using ArrayList
+    static class DynamicStack {
+
+        // container for stack
+        ArrayList<Integer> st;
+
+        public DynamicStack() {
+            st = new ArrayList<>();
+        }
+
+        // push method
+        public void push(int val) {
+            st.add(val);
+        }
+
+        // pop method
+        public int pop() {
+            return st.remove(st.size() - 1);
+        }
+
+        // peek method
+        public int peek() {
+            return st.get(st.size() - 1);
+        }
+
+        // isEmpty method
+        public boolean isEmpty() {
+            return st.isEmpty();
+        }
+
+        // size methode
+        public int size() {
+            return st.size();
+        }
+
+    }
+
+    // stack using LinkedList
+    static class Stack {
+
+        static class Node {
+
+            int data;
+            Node next;
+
+            public Node(int data) {
+                this.data = data;
+            }
+        }
+
+        Node head;
+        int size;
+
+        public Stack() {
+            size = 0;
+        }
+
+        // push
+        public void push(int val) {
+
+            Node temp = new Node(val);
+            temp.next = head;
+            head = temp;
+
+            size++;
+        }
+
+        // pop
+        public int pop() {
+
+            int res = Integer.MAX_VALUE;
+
+            if (head != null) {
+                res = head.data;
+                Node temp = head.next;
+                head.next = null;
+                head = temp;
+                size--;
+            }
+
+            return res;
+        }
+
+        // peek
+        public int peek() {
+
+            if (head != null) {
+                return head.data;
+            }
+
+            return -1;
+        }
+
+        // isEmpty
+        public boolean isEmpty() {
+            if (size == 0)
+                return true;
+
+            return false;
+        }
+
+        // size
+        public int size() {
+            return size;
+        }
+    }
+
     public static void main(String[] args) {
-
-        Stack st = new Stack(5);
-
-        st.getSize();
-        st.peek();
-
-        st.push(1);
-        st.peek();
-
-        st.push(2);
-        st.peek();
-
-        st.push(3);
-        st.peek();
-
-        st.push(4);
-        st.peek();
-
-        st.push(5);
-        st.peek();
-        st.getSize();
-
-        st.push(6);
-        st.getSize();
-
-        st.peek();
-
-        st.pop();
-        st.getSize();
-
-        st.push(6);
-        st.peek();
-        st.getSize();
 
     }
 }
