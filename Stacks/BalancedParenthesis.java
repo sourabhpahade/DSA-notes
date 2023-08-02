@@ -17,16 +17,16 @@ public class BalancedParenthesis {
             } else {
 
                 // if there is no open paren
-                if (st.isEmpty() && (c == ')' || c == '}' || c == ']')) {
+                if (st.isEmpty()) {
                     return false;
                 }
 
                 // checking if open and close match
-                if(!isMatch(st.peek(), c){
+                if (!isMatch(st.peek(), c)) {
                     return false;
                 }
                 // closing if matched
-                else{
+                else {
                     st.pop();
                 }
             }
@@ -39,7 +39,21 @@ public class BalancedParenthesis {
     // using char array as stack to store open parens
     static boolean solve1(String s) {
 
-        int open = -1;s
+        int open = -1;
+
+        char[] arr = s.toCharArray();
+
+        for (int i = 0; i < s.length(); i++) {
+            // storing open parens
+            if (open == -1 || !(isMatch(arr[open], s.charAt(i)))) {
+                open++;
+                arr[open] = s.charAt(i);
+            }
+            // closing the matched bracket
+            else {
+                open--;
+            }
+        }
 
         return open == -1;
     }
