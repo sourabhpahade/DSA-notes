@@ -116,7 +116,7 @@ public class LargestAreaHistogram {
             while (!st.isEmpty() && arr[st.peek()] >= arr[i]) {
 
                 // here i is the next smaller for upcoming elements in stack if they are greater
-                // curr bar
+                // curr bar is tp
                 int tp = st.pop();
 
                 // calculating max area for tp
