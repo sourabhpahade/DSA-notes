@@ -1,3 +1,4 @@
+
 class Solution {
     // Function to search a given number in row-column sorted matrix.
     static boolean search(int a[][], int n, int m, int x) {

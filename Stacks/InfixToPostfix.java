@@ -95,7 +95,7 @@ public class InfixToPostfix {
 
   public static void main(String[] args) {
 
-    String exp = "a+b/c-d*e";
+    String exp = "((2+((6*4)/8))-3)";
     System.out.println(convertToPostfix(exp));
   }
 }

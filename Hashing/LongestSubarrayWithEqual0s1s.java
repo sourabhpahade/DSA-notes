@@ -37,7 +37,7 @@ public class LongestSubarrayWithEqual0s1s {
      * Better Solution: Linear time, spce
      * 
      * 1. switch all 0s with -1.
-     * 2. now find longest subarray with sum
+     * 2. now find longest subarray with zero sum
      * 
      */
 

@@ -27,8 +27,7 @@ public class LongestSubarrayGivenSum {
         int preSum = 0;
 
         // main logic
-        int i;
-        for (i = 0; i < a.length; i++) {
+        for (int i = 0; i < a.length; i++) {
 
             // gives subsum till index i
             preSum += a[i];
